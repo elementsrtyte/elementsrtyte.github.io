@@ -18,7 +18,7 @@
 		var ACCESS_TOKEN = getFirstAnchorTagValue(); 
 		console.log("Access Token: " + ACCESS_TOKEN);
 
-		window.location = 'https://api.instagram.com/v1/users/self/follows?access_token=ACCESS_TOKEN';
+		window.location = 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN;
 
 		// $.ajax({
 		// 	url: 'https://api.instagram.com/v1/users/self/follows?access_token=ACCESS_TOKEN',
