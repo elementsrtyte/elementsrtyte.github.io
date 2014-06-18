@@ -16,6 +16,7 @@
 
 	function Followers(){
 		var ACCESS_TOKEN = getParameterByName("access_token"); 
+		console.log("Access Token: " + ACCESS_TOKEN);
 
 		$.ajax({
 			url: 'https://api.instagram.com/v1/users/self/follows?access_token=ACCESS_TOKEN',
@@ -49,11 +50,6 @@
 <body>
 
 <div class="container">
-<h1>Benefits</b1>
-<ul>
-	<li>we don't store your login or credentials.  you will be directly logging into your instagram account and all we get is a token!</li>
-	<li>find all the people who follow just to unfollow!</li>
-</ul>
 
 <input type="button" value="Find Unfollowers" onclick="Followers()"/>
 	
