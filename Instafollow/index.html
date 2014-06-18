@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Instafollow</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function($) {
+		
+	});
+
+	function LoginOAuth(){
+		//alert('hi');
+		window.location = "https://api.instagram.com/oauth/authorize/?client_id=cc58ebeb6c714fa0b37e311d0cbabb02&redirect_uri=https://elementsrtyte.github.io/Instafollow/loggedin.html&response_type=code";
+
+
+	}
+</script>
+
+</head>
+<body>
+
+<div class="container">
+<h1>Benefits</b1>
+<ul>
+	<li>we don't store your login or credentials.  you will be directly logging into your instagram account and all we get is a token!</li>
+	<li>find all the people who follow just to unfollow!</li>
+</ul>
+
+<input type="button" value="Login with Instagram" onclick="LoginOAuth()"/>
+	
+</div>
+
+
+	
+</body>
+</html>
+
+
+
+
+
