@@ -14,27 +14,64 @@
 		
 	});
 
+	var FollowersSucess = false;
+	var FolloweesSuccess = false;
+
+	var followersArray;
+	var followedByArray;
+
+	//Both Ajax Calls
+	$( document ).ajaxStop(function() {
+		  console.log("Both ajax calls completed." );
+		  if(FolloweesSuccess & FolloweesSuccess)
+		  {
+		  	console.log("Both Ajax Calls completed successfully!");
+		  	console.log(followersArray);
+		  	console.log(followedByArray);
+		  }
+	});
+
+	var d;
 	function Followers(){
 		var ACCESS_TOKEN = getFirstAnchorTagValue(); 
 		console.log("Access Token: " + ACCESS_TOKEN);
 
-		window.location = 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN;
 
-		// $.ajax({
-		// 	url: 'https://api.instagram.com/v1/users/self/follows?access_token=ACCESS_TOKEN',
-		// 	type: 'GET',
-		// 	dataType: 'jsonp'
-		// })
-		// .done(function(data) {
-		// 	console.log("success");
-		// 	console.log(data);
-		// })
-		// .fail(function() {
-		// 	console.log("error");
-		// })
-		// .always(function() {
-		// 	console.log("complete");
-		// });
+		$.ajax({
+			url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN,
+			type: 'GET',
+			dataType: 'jsonp'
+		})
+		.done(function(data) {
+			console.log("success");
+			success = true; //inc
+			console.log(data);
+			$.each(data, function(k, v){
+				console.log(v.id);
+			});
+			followersArray = data;
+		})
+		.fail(function() {
+			console.log("error");
+		});
+
+		$.ajax({				 
+			url: 'https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN,
+			type: 'GET',
+			dataType: 'jsonp'
+		})
+		.done(function(data) {
+			console.log("success");
+			success = true;
+			console.log(data);
+			$.each(data, function(k, v){
+				console.log(v.id);
+			});
+			followedByArray = data;
+		})
+		.fail(function() {
+			console.log("error");
+		});
 		
 	}
 
