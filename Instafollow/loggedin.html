@@ -15,7 +15,7 @@
 	});
 
 	function Followers(){
-		var ACCESS_TOKEN = getParameterByName("access_token"); 
+		var ACCESS_TOKEN = getFirstAnchorTagValue(); 
 		console.log("Access Token: " + ACCESS_TOKEN);
 
 		$.ajax({
@@ -37,12 +37,9 @@
 		
 	}
 
-	function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
+	function getFirstAnchorTagValue() {
+		return window.location.hash.substring(window.location.hash.indexOf("=")+1);
+	}
 
 </script>
 
