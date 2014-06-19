@@ -85,11 +85,11 @@
 				}
 
 				var listofnames = "";
-				$.each(c.data, function(){
-					listofnames += 	"<li>" + $(this).full_name + "</li>";
+				$.each(c, function(k, v){
+					$('#tableview').append( "<tr><td>" + v.username + "</td> <td>"+ v.full_name+"</td></tr>");
 				});
 
-				$('#outputcontainer').html(listofnames);
+				// $('#tableview').html(listofnames);
 
 
 
@@ -116,21 +116,21 @@
 <h1>Instafollow</h1>
 <input type="button" value="Find Unfollowers" onclick="Followers()"/>
 	
-<table class="table">
+<table id="tableview" class="table">
 	<tr>
-		<td>Fullname</td>
-		<td>Username</td>
+		<td><b>Username</b></td>
+		<td><b>Full Name</b></td>
 	</tr>
 </table>
 
 
-<div id="output">
+<!-- <div id="output">
 	<ul>
 	<div id="outputcontainer">
 	</div>
 	</ul>
 </div>
-
+ -->
 </div>
 
 
