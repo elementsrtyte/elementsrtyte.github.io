@@ -90,7 +90,7 @@
 			while(i<followersArray.data.length && j<followedByArray.data.length)
 			{
 				if(followersArray.data[i].id == followedByArray.data[j].id){
-					c[c.length] = followersArray[i];
+					c[c.length] = followersArray.data[i];
 					i++;
 				}
 				else if(followersArray.data[i].id > followedByArray.data[j].id)
