@@ -12,10 +12,6 @@
 <script type="text/javascript">
 	//var expectedFunctions = 0;
 
-	$(document).ready(function($) {
-		
-	});
-
 	var FollowersSucess = false;
 	var FolloweesSuccess = false;
 
@@ -92,7 +88,7 @@
 			// {
 
 				for (var i = 0; i < followersArray.data.length; i++) {
-					if(!($.inArray(followersArray.data[i], followedByArray.data)))
+					if(($.inArray(followersArray.data[i], followedByArray.data))>=0)
 						c[c.length] = followersArray.data[i];
 				}
 
