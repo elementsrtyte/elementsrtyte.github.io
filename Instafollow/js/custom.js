@@ -4,12 +4,35 @@
 	var peopleIFollowArray = [];
 	var peopleWhoFollowMeArray = [];
 
+	var number_async_calls = 0;
+
+//make sure to call this function with the access token attached the url.
+function Followers(url){
+	number_async_calls++;
+	
+	$.ajax({
+			url: url,
+			type: 'GET',
+			dataType: 'jsonp'
+		})
+		.done(function(data) {
+			FollowersSucess = true; //inc
+			console.log(data);
+			peopleIFollowArray = peopleIFollowArray.concat(data.data);
+
+			//recursive call to get ALL the hits since IG randomly limits the amount of results available.
+			if(data.pagination.next_url)
+				Followers(data.pagination.next_url)
+			else
+				ReceivedAJAXResponse();
+		})
+		.fail(function() {
+			console.log("error");
+		});
+}
 
 
 	function Followers(){
-		var ACCESS_TOKEN = getFirstAnchorTagValue(); 
-		console.log("Access Token: " + ACCESS_TOKEN);
-
 
 		$.ajax({
 			url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN,
@@ -20,7 +43,7 @@
 			FollowersSucess = true; //inc
 			console.log(data);
 			peopleIFollowArray = data;
-			receivedAJAXResponse();
+			ReceivedAJAXResponse();
 		})
 		.fail(function() {
 			console.log("error");
@@ -35,7 +58,7 @@
 			FolloweesSuccess = true;
 			console.log(data);
 			peopleWhoFollowMeArray = data;
-			receivedAJAXResponse();
+			ReceivedAJAXResponse();
 		})
 		.fail(function() {
 			console.log("error");
@@ -43,16 +66,16 @@
 		
 	}
 
-	function getFirstAnchorTagValue() {
+	function GetToken() {
 		return window.location.hash.substring(window.location.hash.indexOf("=")+1);
 	}
 
-	function receivedAJAXResponse(){
+	function ReceivedAJAXResponse(){
 		if(FolloweesSuccess & FolloweesSuccess)
 	  	{
 	  		FolloweesSuccess = false;
 	  		FollowersSucess = false;
-	  		
+
 	  		console.log("Both Ajax Calls completed successfully!");
 			var c = []; //will store the people who are only followed by me.
 			var d = []; //will store followers who are followed by me.
