@@ -19,8 +19,8 @@
 	var FollowersSucess = false;
 	var FolloweesSuccess = false;
 
-	var followersArray;
-	var followedByArray;
+	var followersArray = [];
+	var followedByArray = [];
 
 
 
@@ -75,6 +75,8 @@
 		if(FolloweesSuccess & FolloweesSuccess)
 	  	{
 	  		console.log("Both Ajax Calls completed successfully!");
+	  		console.log(followersArray);
+	  		
 	  		console.log(followersArray.data);
 	  		console.log(followedByArray.data);
 
