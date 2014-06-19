@@ -33,9 +33,6 @@
 		.done(function(data) {
 			FollowersSucess = true; //inc
 			console.log(data);
-			// $.each(data.data, function(k, v){
-			// 	console.log(v.id);
-			// });
 			followersArray = data;
 			receivedAJAXResponse();
 		})
@@ -51,9 +48,6 @@
 		.done(function(data) {
 			FolloweesSuccess = true;
 			console.log(data);
-			// $.each(data.data, function(k, v){
-			// 	console.log(v.id);
-			// });
 			followedByArray = data;
 			receivedAJAXResponse();
 		})
@@ -71,28 +65,8 @@
 		if(FolloweesSuccess & FolloweesSuccess)
 	  	{
 	  		console.log("Both Ajax Calls completed successfully!");
-	  		//console.log(followersArray);
-
-	  		// console.log(followersArray.data);
-	  		// console.log(followedByArray.data);
-
-	  		//The only bit of computer science in this whole dumb project...
-			//followersArray.data.sort(SortByID);
-			//followedByArray.data.sort(SortByID);	    
-
-			//var i = 0;
-			//var j = 0;
 			var c = []; //will store the people who are only followed by me.
 			var d = []; //will store followers who are followed by me.
-
-			// while(i<followersArray.data.length && j<followedByArray.data.length)
-			// {
-
-				// for (var i = 0; i < followersArray.data.length; i++) {
-				// 	console.log("inarray: " + $.inArray(followersArray.data[i], followedByArray.data));
-				// 	if(($.inArray(followersArray.data[i], followedByArray.data))>=0)
-				// 		c[c.length] = followersArray.data[i];
-				// }
 
 				for(var i = 0; i< followedByArray.data.length; i++)
 				{
@@ -111,16 +85,6 @@
 					}
 				}
 
-
-				// if(followersArray.data[i].id == followedByArray.data[j].id){
-				// 	c[c.length] = followersArray.data[i];
-				// 	i++;
-				// }
-				// else if(followersArray.data[i].id > followedByArray.data[j].id)
-				// 	j++;
-				// else
-				// 	i++;
-			//}
 			console.log(c);
 			console.log(d);
 		}
@@ -133,14 +97,6 @@
 	function SortByID(a, b){
 		  return ((a.id < b.id) ? -1 : ((a.id > b.id) ? 1 : 0));
 	}
-
-
-
-
-// function pagination(url){
-// 	if(data.pagination.next_url)
-
-// }
 
 </script>
 
