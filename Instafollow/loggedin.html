@@ -81,23 +81,30 @@
 	  		// console.log(followedByArray.data);
 
 	  		//The only bit of computer science in this whole dumb project...
-			followersArray.data.sort(SortByID);
-			followedByArray.data.sort(SortByID);	    
+			//followersArray.data.sort(SortByID);
+			//followedByArray.data.sort(SortByID);	    
 
-			var i = 0;
-			var j = 0;
+			//var i = 0;
+			//var j = 0;
 			var c = [];
-			while(i<followersArray.data.length && j<followedByArray.data.length)
-			{
-				if(followersArray.data[i].id == followedByArray.data[j].id){
-					c[c.length] = followersArray.data[i];
-					i++;
+
+			// while(i<followersArray.data.length && j<followedByArray.data.length)
+			// {
+
+				for (var i = 0; i < followersArray.data.length; i++) {
+					if(!($.inArray(followersArray.data[i], followedByArray.data)))
+						c[c.length] = followersArray.data[i];
 				}
-				else if(followersArray.data[i].id > followedByArray.data[j].id)
-					j++;
-				else
-					i++;
-			}
+
+				// if(followersArray.data[i].id == followedByArray.data[j].id){
+				// 	c[c.length] = followersArray.data[i];
+				// 	i++;
+				// }
+				// else if(followersArray.data[i].id > followedByArray.data[j].id)
+				// 	j++;
+				// else
+				// 	i++;
+			//}
 			console.log(c);
 		}
 	    else
