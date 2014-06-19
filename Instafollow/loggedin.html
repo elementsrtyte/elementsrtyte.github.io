@@ -26,7 +26,7 @@
 
 
 		$.ajax({
-			url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN  + '&count=5',
+			url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN,
 			type: 'GET',
 			dataType: 'jsonp'
 		})
@@ -41,7 +41,7 @@
 		});
 
 		$.ajax({				 
-			url: 'https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN + '&count=5',
+			url: 'https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN,
 			type: 'GET',
 			dataType: 'jsonp'
 		})
@@ -81,9 +81,17 @@
 						{
 							c[c.length] = peopleIFollowArray.data[i];
 						}
-						
 					}
 				}
+
+				var listofnames = "";
+				$.each(c.data, function(){
+					listofnames += 	"<li>" + $(this).full_name + "</li>";
+				});
+
+				$('#outputcontainer').html(listofnames);
+
+
 
 			console.log(c);
 			console.log(d);
@@ -105,8 +113,24 @@
 
 <div class="container">
 
+<h1>Instafollow</h1>
 <input type="button" value="Find Unfollowers" onclick="Followers()"/>
 	
+<table class="table">
+	<tr>
+		<td>Fullname</td>
+		<td>Username</td>
+	</tr>
+</table>
+
+
+<div id="output">
+	<ul>
+	<div id="outputcontainer">
+	</div>
+	</ul>
+</div>
+
 </div>
 
 
