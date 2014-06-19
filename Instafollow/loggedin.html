@@ -13,7 +13,7 @@
 	$(document).ready(function($) {
 		
 				//Both Ajax Calls
-		$( document ).ajaxSuccess(function( event, request, settings ) {
+		$( document ).ajaxStop(function( event, request, settings ) {
 			  console.log("Both ajax calls completed." );
 			  if(FolloweesSuccess & FolloweesSuccess)
 			  {
@@ -47,9 +47,9 @@
 			console.log("success");
 			success = true; //inc
 			console.log(data);
-			$.each(data, function(k, v){
-				console.log(v.id);
-			});
+			// $.each(data.data, function(k, v){
+			// 	console.log(v.id);
+			// });
 			followersArray = data;
 		})
 		.fail(function() {
@@ -65,9 +65,9 @@
 			console.log("success");
 			success = true;
 			console.log(data);
-			$.each(data, function(k, v){
-				console.log(v.id);
-			});
+			// $.each(data.data, function(k, v){
+			// 	console.log(v.id);
+			// });
 			followedByArray = data;
 		})
 		.fail(function() {
