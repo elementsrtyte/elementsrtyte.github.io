@@ -12,6 +12,16 @@
 <script type="text/javascript">
 	$(document).ready(function($) {
 		
+				//Both Ajax Calls
+		$( document ).ajaxSuccess(function( event, request, settings ) {
+			  console.log("Both ajax calls completed." );
+			  if(FolloweesSuccess & FolloweesSuccess)
+			  {
+			  	console.log("Both Ajax Calls completed successfully!");
+			  	console.log(followersArray);
+			  	console.log(followedByArray);
+			  }
+		});
 	});
 
 	var FollowersSucess = false;
@@ -20,16 +30,7 @@
 	var followersArray;
 	var followedByArray;
 
-	//Both Ajax Calls
-	$( document ).ajaxStop(function() {
-		  console.log("Both ajax calls completed." );
-		  if(FolloweesSuccess & FolloweesSuccess)
-		  {
-		  	console.log("Both Ajax Calls completed successfully!");
-		  	console.log(followersArray);
-		  	console.log(followedByArray);
-		  }
-	});
+
 
 	var d;
 	function Followers(){
