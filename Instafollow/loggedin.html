@@ -15,8 +15,8 @@
 	var FollowersSucess = false;
 	var FolloweesSuccess = false;
 
-	var followersArray = [];
-	var followedByArray = [];
+	var peopleIFollowArray = [];
+	var peopleWhoFollowMeArray = [];
 
 
 
@@ -33,7 +33,7 @@
 		.done(function(data) {
 			FollowersSucess = true; //inc
 			console.log(data);
-			followersArray = data;
+			peopleIFollowArray = data;
 			receivedAJAXResponse();
 		})
 		.fail(function() {
@@ -48,7 +48,7 @@
 		.done(function(data) {
 			FolloweesSuccess = true;
 			console.log(data);
-			followedByArray = data;
+			peopleWhoFollowMeArray = data;
 			receivedAJAXResponse();
 		})
 		.fail(function() {
@@ -68,18 +68,18 @@
 			var c = []; //will store the people who are only followed by me.
 			var d = []; //will store followers who are followed by me.
 
-				for(var i = 0; i< followedByArray.data.length; i++)
+				for(var i = 0; i< peopleIFollowArray.data.length; i++)
 				{
-					for(var j = 0; j<followersArray.data.length; j++)
+					for(var j = 0; j<peopleWhoFollowMeArray.data.length; j++)
 					{
-						if(followedByArray.data[i].id == followersArray.data[j].id)
+						if(peopleIFollowArray.data[i].id == peopleWhoFollowMeArray.data[j].id)
 						{
-							d[d.length] = followedByArray.data[i];
+							d[d.length] = peopleIFollowArray.data[i];
 							break;
 						}
-						else if(j==followersArray.data.length-1)
+						else if(j==peopleWhoFollowMeArray.data.length-1)
 						{
-							c[c.length] = followedByArray.data[i];
+							c[c.length] = peopleIFollowArray.data[i];
 						}
 						
 					}
