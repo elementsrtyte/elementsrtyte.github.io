@@ -50,6 +50,9 @@
 	function receivedAJAXResponse(){
 		if(FolloweesSuccess & FolloweesSuccess)
 	  	{
+	  		FolloweesSuccess = false;
+	  		FollowersSucess = false;
+	  		
 	  		console.log("Both Ajax Calls completed successfully!");
 			var c = []; //will store the people who are only followed by me.
 			var d = []; //will store followers who are followed by me.
@@ -70,7 +73,6 @@
 					}
 				}
 
-				var listofnames = "";
 				$.each(c, function(k, v){
 					$('#tableview').append( "<tr><td>" + v.username + "</td> <td>"+ v.full_name+"</td></tr>");
 				});
