@@ -5,27 +5,57 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Instafollow</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/custom.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/custom.js"></script>
+
+	<style>
+	#tableview{
+		margin-top: 20px;
+	}
+	</style>
 
 </head>
 <body>
 
-<div class="container">
-
-<h1>Instafollow</h1>
-<input type="button" value="Find Unfollowers" onclick="Followers()"/>
-	
-<table id="tableview" class="table">
-	<tr>
-		<td><b>Username</b></td>
-		<td><b>Full Name</b></td>
-	</tr>
-</table>
-</div>
+	<div class="navbar navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
+				<a class="navbar-brand" href="#">Instafollow</a>
+			</div>
+		</div>
+	</div>
 
 
-	
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<input type="button" class="btn btn-primary" value="Find Unfollowers" onclick="Followers()"/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+
+				<div id="tableview" class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">Unfollowers</div>
+					<table class="table">
+						<tr>
+							<th>Username</th>
+							<th>Full Name</th>
+						</tr>
+					</table>
+<!-- <ul class="pager">
+  <li><a href="#">Previous</a></li>
+  <li><a href="#">Next</a></li>
+</ul> -->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
 
