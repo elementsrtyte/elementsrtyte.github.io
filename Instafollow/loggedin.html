@@ -10,18 +10,10 @@
 
 
 <script type="text/javascript">
+	//var expectedFunctions = 0;
+
 	$(document).ready(function($) {
 		
-				//Both Ajax Calls
-		$( document ).ajaxStop(function( event, request, settings ) {
-			  console.log("Both ajax calls completed." );
-			  if(FolloweesSuccess & FolloweesSuccess)
-			  {
-			  	console.log("Both Ajax Calls completed successfully!");
-			  	console.log(followersArray);
-			  	console.log(followedByArray);
-			  }
-		});
 	});
 
 	var FollowersSucess = false;
@@ -32,7 +24,6 @@
 
 
 
-	var d;
 	function Followers(){
 		var ACCESS_TOKEN = getFirstAnchorTagValue(); 
 		console.log("Access Token: " + ACCESS_TOKEN);
@@ -44,13 +35,13 @@
 			dataType: 'jsonp'
 		})
 		.done(function(data) {
-			console.log("success");
-			success = true; //inc
+			FollowersSucess = true; //inc
 			console.log(data);
 			// $.each(data.data, function(k, v){
 			// 	console.log(v.id);
 			// });
 			followersArray = data;
+			receivedAJAXResponse();
 		})
 		.fail(function() {
 			console.log("error");
@@ -62,13 +53,13 @@
 			dataType: 'jsonp'
 		})
 		.done(function(data) {
-			console.log("success");
-			success = true;
+			FolloweesSuccess = true;
 			console.log(data);
 			// $.each(data.data, function(k, v){
 			// 	console.log(v.id);
 			// });
 			followedByArray = data;
+			receivedAJAXResponse();
 		})
 		.fail(function() {
 			console.log("error");
@@ -79,6 +70,32 @@
 	function getFirstAnchorTagValue() {
 		return window.location.hash.substring(window.location.hash.indexOf("=")+1);
 	}
+
+	function receivedAJAXResponse(){
+		if(FolloweesSuccess & FolloweesSuccess)
+	  	{
+	  		console.log("Both Ajax Calls completed successfully!");
+	  		console.log(followersArray.data);
+	  		console.log(followedByArray.data);
+
+			followersArray.sort(SortByID);
+			followedByArray.sort(SortByID);	    
+		}
+	    else
+	    {
+	    	console.log("Haven't received full data set yet");
+	    }
+	}
+
+	function SortByID(a, b){
+		console.log("a:" + a);
+		console.log(b);
+	  var aID = a.data.id;
+	  var bID = b.data.id; 
+	  return ((aID < bID) ? -1 : ((aID > bID) ? 1 : 0));
+	}
+
+
 
 
 // function pagination(url){
