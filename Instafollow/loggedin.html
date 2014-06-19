@@ -26,7 +26,7 @@
 
 
 		$.ajax({
-			url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN,
+			url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN  + '&count=5',
 			type: 'GET',
 			dataType: 'jsonp'
 		})
@@ -44,7 +44,7 @@
 		});
 
 		$.ajax({				 
-			url: 'https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN,
+			url: 'https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN + '&count=5',
 			type: 'GET',
 			dataType: 'jsonp'
 		})
