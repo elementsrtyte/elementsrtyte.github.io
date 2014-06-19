@@ -75,13 +75,27 @@
 		if(FolloweesSuccess & FolloweesSuccess)
 	  	{
 	  		console.log("Both Ajax Calls completed successfully!");
-	  		console.log(followersArray);
-	  		
-	  		console.log(followersArray.data);
-	  		console.log(followedByArray.data);
+	  		//console.log(followersArray);
 
-			followersArray.sort(SortByID);
-			followedByArray.sort(SortByID);	    
+	  		// console.log(followersArray.data);
+	  		// console.log(followedByArray.data);
+
+	  		//The only bit of computer science in this whole dumb project...
+			followersArray.data.sort(SortByID);
+			followedByArray.data.sort(SortByID);	    
+
+			var i, j = 0;
+			var c = [];
+			while(i<followersArray.length && j<followedByArray.length)
+			{
+				if(followersArray.data[i].id == followedByArray.data[j].id)
+					c[c.length] = followersArray[i];
+				else if(followersArray.data[i].id > followedByArray.data[j].id)
+					j++;
+				else
+					i++;
+			}
+			console.log(c);
 		}
 	    else
 	    {
@@ -90,11 +104,7 @@
 	}
 
 	function SortByID(a, b){
-		console.log("a:" + a);
-		console.log(b);
-	  var aID = a.data.id;
-	  var bID = b.data.id; 
-	  return ((aID < bID) ? -1 : ((aID > bID) ? 1 : 0));
+		  return ((a.id < b.id) ? -1 : ((a.id > b.id) ? 1 : 0));
 	}
 
 
