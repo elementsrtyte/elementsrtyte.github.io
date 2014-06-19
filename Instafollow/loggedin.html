@@ -82,15 +82,33 @@
 
 			//var i = 0;
 			//var j = 0;
-			var c = [];
+			var c = []; //will store the people who are only followed by me.
+			var d = []; //will store followers who are followed by me.
 
 			// while(i<followersArray.data.length && j<followedByArray.data.length)
 			// {
 
-				for (var i = 0; i < followersArray.data.length; i++) {
-					console.log("inarray: " + $.inArray(followersArray.data[i], followedByArray.data));
-					if(($.inArray(followersArray.data[i], followedByArray.data))>=0)
-						c[c.length] = followersArray.data[i];
+				// for (var i = 0; i < followersArray.data.length; i++) {
+				// 	console.log("inarray: " + $.inArray(followersArray.data[i], followedByArray.data));
+				// 	if(($.inArray(followersArray.data[i], followedByArray.data))>=0)
+				// 		c[c.length] = followersArray.data[i];
+				// }
+
+				for(var i = 0; i< followedByArray.data.length; i++)
+				{
+					for(var j = 0; j<followersArray.data.length; j++)
+					{
+						if(followedByArray.data[i].id == followersArray.data[j].id)
+						{
+							d[d.length] = followedByArray.data[i];
+							break;
+						}
+						else if(j==followersArray.data.length-1)
+						{
+							c[c.length] = followedByArray.data[i];
+						}
+						
+					}
 				}
 
 				// if(followersArray.data[i].id == followedByArray.data[j].id){
@@ -103,6 +121,7 @@
 				// 	i++;
 			//}
 			console.log(c);
+			console.log(d);
 		}
 	    else
 	    {
