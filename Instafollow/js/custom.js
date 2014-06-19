@@ -9,7 +9,7 @@
 //make sure to call this function with the access token attached the url.
 function Followers(url){
 	number_async_calls++;
-	
+
 	$.ajax({
 			url: url,
 			type: 'GET',
@@ -33,6 +33,7 @@ function Followers(url){
 
 
 	function Followers(){
+		var ACCESS_TOKEN = GetToken();
 
 		$.ajax({
 			url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN,
