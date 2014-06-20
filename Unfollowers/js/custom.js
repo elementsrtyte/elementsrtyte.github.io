@@ -8,6 +8,7 @@
 
 $(document).ready(function($) {
 	$('#tableviewcontainer').hide();
+	mixpanel.track("Unfollowers Page Viewed");
 	Followers();
 });
 
@@ -89,6 +90,8 @@ function Followers(url){
 	  	{
 	  		$('#tableviewcontainer').show();
  			$('#nousersfound').hide();
+
+ 			mixpanel.track("Unfollowers Calculated and Viewed");
 
 	  		FolloweesSuccess = false;
 	  		FollowersSucess = false;
