@@ -5,127 +5,43 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Instafollow</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles2.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800italic' rel='stylesheet' type='text/css'>
 	<script src="js/custom.js"></script>
-
-	<style>
-	*{
-		font-family: "Open Sans";
-	}
-
-	#tableviewcontainer{
-		margin-top: 20px;
-		margin-bottom: 100px;
-	}
-
-	body{
-		background-color: #1abc9c;
-		  margin-bottom: 60px; /*sticky footer*/
- 
-	}
-
-	.content{
-		margin-top: 30px;
-		margin-bottom: 30px;
-	}
-
-	.tblcell{
-		font-weight: lighter;
-		font-size: 25px;
-	}
-
-	.tblheading{
-		font-weight: lighter;
-		font-size: 35px;
-	}
-
-	th{
-		font-size: 25px;
-	}
-
-		#hero{
-		font-size: 90px;
-		font-weight: 800;
-		letter-spacing: -4px;
-		margin-top: 50px;
-		font-style: italic;
-		color: #ecf0f1;
-	}
-
-	#nousersfound{
-		height: 60px;
-		background-color: #d9534f;
-		padding-top: 12px;
-		font-size: 20px;
-		font-weight: lighter;
-		border: 2px white solid;
-	}
-
-	#footer{
-		position: absolute;
-		height: 60px;
-		bottom: 0px;
-		background-color: white;
-		width: 100%;
-	}
-
-	.footnote{
-		margin-top: 20px;
-	}
-
-	/*Sticky Footer*/
-	html {
-  position: relative;
-  min-height: 100%;
-}
-	</style>
-
 </head>
 <body>
-
-
-<div class="header">
-	<div class="container">
+	<div class="header">
+		<div class="container">
 			<h1 id="hero" class='text-center'>IG: Unfollowers</h1>
+		</div>
 	</div>
-</div>
-
-
-<div class="content">
-	<div class="container">
-<!-- 		<div class="row">
-			<div class="col-xs-12">
-				<input type="button" class="btn btn-primary" value="Find Unfollowers" onclick="Followers()"/>
-			</div>
-		</div> -->
-
-		<div class="row">
-			<div class="col-xs-12">
-				<div id="tableviewcontainer" class="panel panel-default">
-					<table id="tableview" class="table">
-						<tr>
-							<th>Username</th>
-							<th>Full Name</th>
-						</tr>
-					</table>
-				</div>
-				<div class="bg-danger text-center">
-					<div id="nousersfound">	No users have been found! Try Refreshing.</div>
+	<div class="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div id="tableviewcontainer" class="panel panel-default">
+						<table id="tableview" class="table">
+							<tr>
+								<th>Username</th>
+								<th>Full Name</th>
+							</tr>
+						</table>
+					</div>
+					<div class="bg-danger text-center">
+						<div id="nousersfound">	No users have been found! Try Refreshing.</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
-
 	<div id="footer">
 		<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<p class="text-center footnote">Note: Still in development.  Currently only shows the first 50 unfollowers.</p>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="text-center footnote">Note: Still in development.  Currently only shows the first 50 unfollowers.</p>
+				</div>
 			</div>
 		</div>
-	</div>
-
 </body>
 </html>
