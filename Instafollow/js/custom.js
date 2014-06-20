@@ -46,10 +46,13 @@ function Followers(url){
 			dataType: 'jsonp'
 		})
 		.done(function(data) {
-			FollowersSucess = true; //inc
 			console.log(data);
-			peopleIFollowArray = data;
-			ReceivedAJAXResponse();
+			if(data.meta.code != 400)
+			{
+				FollowersSucess = true;
+				peopleIFollowArray = data;
+				ReceivedAJAXResponse();
+			}
 		})
 		.fail(function() {
 			console.log("error");
@@ -61,16 +64,21 @@ function Followers(url){
 			dataType: 'jsonp'
 		})
 		.done(function(data) {
-			FolloweesSuccess = true;
 			console.log(data);
-			peopleWhoFollowMeArray = data;
-			ReceivedAJAXResponse();
+			if(data.meta.code != 400)
+			{
+				FolloweesSuccess = true;
+				peopleWhoFollowMeArray = data;
+				ReceivedAJAXResponse();
+			}
 		})
 		.fail(function() {
 			console.log("error");
 		});
 		
 	}
+
+
 
 	function GetToken() {
 		return window.location.hash.substring(window.location.hash.indexOf("=")+1);
