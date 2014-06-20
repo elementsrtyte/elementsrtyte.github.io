@@ -7,6 +7,7 @@
 	var number_async_calls = 0;
 
 $(document).ready(function($) {
+	$('#tableviewcontainer').hide();
 	Followers();
 });
 
@@ -78,6 +79,9 @@ function Followers(url){
 	function ReceivedAJAXResponse(){
 		if(FolloweesSuccess & FolloweesSuccess)
 	  	{
+	  		$('#tableviewcontainer').show();
+ 			$('#nousersfound').hide();
+
 	  		FolloweesSuccess = false;
 	  		FollowersSucess = false;
 
