@@ -6,6 +6,10 @@
 
 	var number_async_calls = 0;
 
+$(document).ready(function($) {
+	Followers();
+});
+
 //make sure to call this function with the access token attached the url.
 function Followers(url){
 	number_async_calls++;
