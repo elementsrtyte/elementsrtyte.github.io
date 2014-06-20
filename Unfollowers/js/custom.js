@@ -8,7 +8,6 @@
 
 $(document).ready(function($) {
 	$('#tableviewcontainer').hide();
-	mixpanel.track("Unfollowers Page Viewed");
 	Followers();
 });
 
