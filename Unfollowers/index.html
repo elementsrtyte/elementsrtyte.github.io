@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Unfollowers</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:800,800italic' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+	<script type="text/javascript">
+	function LoginOAuth(){
+		window.location = "https://api.instagram.com/oauth/authorize/?client_id=cc58ebeb6c714fa0b37e311d0cbabb02&redirect_uri=https://elementsrtyte.github.io/Instafollow/unfollowers.html&response_type=token";
+	}
+	</script>
+</head>
+<body>
+	<div class = "navbar">
+		<h1 id="hero" class='text-center'>IG: Unfollowers</h1>
+		<input type="button" class="btn btn-default btn-lg" value="Login with Instagram" onclick="LoginOAuth()"/>
+	</div>
+	<div class="container">
+		<div class="content">
+	
+
+
+			<div class="row">
+								<div class="col-xs-4">
+					<img src="img/follower.png">
+				</div>	
+				<div class="col-xs-8">
+					<div class="info">
+						<div class="infotitle">Find Unfollowers.</div>
+						<div class="infodescription">Now you can call out all the people who you follow that don't follow you back (or unfollowed you) on Instagram!</div>
+					</div>
+				</div>
+
+			</div>
+
+		<div class="row">
+
+				<div class="col-xs-8">
+					<div class="info">
+						<div class="infotitle">Completely Secure.</div> 
+						<div class="infodescription">We don't store your login or credentials.  The only access we have is to see who you follow and who follows you.</div>
+					</div>
+				</div>
+								<div class="col-xs-4">
+					<img src="img/lock.png">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-4">
+					<img src="img/write.png">
+				</div>
+				<div class="col-xs-8">
+					<div class="info">
+						<div class="infotitle">No Posting.</div> 
+						<div class="infodescription">We don't even have access to post anything to your instagram, so don't worry about annoying spam-ish comments that other services may write.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer"></div>
+</body>
+</html>
+
+
+
+
+

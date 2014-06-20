@@ -1,0 +1,68 @@
+*{
+	font-family: "Open Sans";
+}
+
+body{
+	background-color: #1abc9c;
+	margin-bottom: 60px; /*sticky footer*/
+}
+
+th{
+	font-size: 25px;
+}
+
+/*Sticky Footer*/
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+#hero{
+	font-size: 90px;
+	font-weight: 800;
+	letter-spacing: -4px;
+	margin-top: 50px;
+	font-style: italic;
+	color: #ecf0f1;
+}
+
+#tableviewcontainer{
+	margin-top: 20px;
+	margin-bottom: 100px;
+}
+
+.content{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.tblcell{
+	font-weight: lighter;
+	font-size: 25px;
+}
+
+.tblheading{
+	font-weight: lighter;
+	font-size: 35px;
+}
+
+#nousersfound{
+	height: 60px;
+	background-color: #d9534f;
+	padding-top: 12px;
+	font-size: 20px;
+	font-weight: lighter;
+	border: 2px white solid;
+}
+
+#footer{
+	position: absolute;
+	height: 60px;
+	bottom: 0px;
+	background-color: white;
+	width: 100%;
+}
+
+.footnote{
+	margin-top: 20px;
+}

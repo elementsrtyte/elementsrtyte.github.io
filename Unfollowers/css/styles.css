@@ -1,0 +1,46 @@
+body{
+	background-color:#34495e;
+	color: white;
+}	
+
+.navbar{
+	height: 700px;
+	background-color: #1abc9c;
+	text-align: center;
+}
+
+#hero{
+	font-size: 130px;
+	font-family: "Open Sans";
+	font-weight: 800;
+	letter-spacing: -4px;
+	margin-top: 150px;
+	margin-bottom: 100px;
+	font-style: italic;
+	color: #ecf0f1;
+}
+
+
+.info{
+	font-size: 30px;
+	letter-spacing: -1px;
+	margin-top: 80px;
+}
+
+.infotitle{
+	font-weight: 800;
+}
+.infodescription{
+	color: lightgray;
+}
+
+.content{
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+
+.footer{
+	height: 50px;
+	background-color: #ecf0f1;
+}
