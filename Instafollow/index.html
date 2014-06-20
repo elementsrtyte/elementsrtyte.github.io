@@ -5,9 +5,61 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Instafollow</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800italic' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+<style type="text/css" media="screen">
+	body{
+		background-color:#34495e;
+		color: #ecf0f1;
+	}	
 
+	#hero{
+		font-size: 130px;
+		font-family: "Open Sans";
+		font-weight: 800;
+		letter-spacing: -4px;
+		margin-top: 150px;
+		margin-bottom: 100px;
+		font-style: italic;
+		color: #ecf0f1;
+	}
+
+
+	.info{
+		font-size: 30px;
+		letter-spacing: -1px;
+		margin-top: 80px;
+
+
+	}
+
+	.block{
+		display: inline-block;
+		vertical-align: middle;
+				float: none;
+	}
+
+	.infotitle{
+		font-weight: 800;
+	}
+
+	.navbar{
+		height: 700px;
+		background-color: #1abc9c;
+		text-align: center;
+	}
+
+	.footer{
+		height: 50px;
+		background-color: #ecf0f1;
+	}
+
+	.content{
+		margin-top: 50px;
+		margin-bottom: 100px;
+	}
+</style>
 
 <script type="text/javascript">
 	$(document).ready(function($) {
@@ -25,17 +77,54 @@
 </head>
 <body>
 
-<div class="container">
-<h1>Benefits</b1>
-<ul>
-	<li>we don't store your login or credentials.  you will be directly logging into your instagram account and all we get is a token!</li>
-	<li>find all the people who follow just to unfollow!</li>
-</ul>
-
-<input type="button" value="Login with Instagram" onclick="LoginOAuth()"/>
-	
+<!-- 	<div class="navbar navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
+				<a class="navbar-brand" href="#">Instafollow</a>
+			</div>
+		</div>
+	</div>
+ -->
+<div class = "navbar">
+			<h1 id="hero" class='text-center'>IG: Unfollowers</h1>
+			<input type="button" class="btn btn-default btn-lg" value="Login with Instagram" onclick="LoginOAuth()"/>
 </div>
 
+<div class="container">
+
+<div class="content">
+<div class="row block">
+	<div class="col-xs-3">
+		<img src="img/lock.png">
+	</div>
+	<div class="col-xs-9">
+		<div class="info">
+			<div class="infotitle">Completely Secure.</div> 
+			<div>We don't store your login or credentials.  The only access we have is to see who you follow and who follows you.</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-9">
+		<div class="info">
+			<div class="infotitle">Find Unfollowers.</div>
+			<div>Now you can call out all the people who followed you and then unfollowed you on Instagram!</div>
+		</div>
+	</div>
+	<div class="col-xs-3">
+		<img src="img/follower.png">
+	</div>	
+
+</div>
+
+
+</div>
+</div>
+<div class="footer">
+
+</div>
 
 	
 </body>
