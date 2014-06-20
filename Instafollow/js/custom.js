@@ -102,7 +102,7 @@ function Followers(url){
 				}
 
 				$.each(c, function(k, v){
-					$('#tableview').append( "<tr><td>" + v.username + "</td> <td>"+ v.full_name+"</td></tr>");
+					$('#tableview').append( "<tr><td class='tblcell'>" + v.username + "</td> <td>"+ v.full_name+"</td></tr>");
 				});
 
 			console.log(c);
