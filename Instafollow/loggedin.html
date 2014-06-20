@@ -20,6 +20,8 @@
 
 	body{
 		background-color: #1abc9c;
+		  margin-bottom: 60px; /*sticky footer*/
+ 
 	}
 
 	.content{
@@ -59,7 +61,7 @@
 		border: 2px white solid;
 	}
 
-	.footer{
+	#footer{
 		position: absolute;
 		height: 60px;
 		bottom: 0px;
@@ -71,6 +73,11 @@
 		margin-top: 20px;
 	}
 
+	/*Sticky Footer*/
+	html {
+  position: relative;
+  min-height: 100%;
+}
 	</style>
 
 </head>
@@ -110,7 +117,7 @@
 	</div>
 	</div>
 
-	<div class="footer">
+	<div id="footer">
 		<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
