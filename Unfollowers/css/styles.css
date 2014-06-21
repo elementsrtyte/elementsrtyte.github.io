@@ -3,6 +3,10 @@ body{
 	color: white;
 }	
 
+img{
+	height: 200px;
+}
+
 .navbar{
 	height: 700px;
 	background-color: #1abc9c;
@@ -10,7 +14,7 @@ body{
 }
 
 #hero{
-	font-size: 70px;
+	font-size: 50px;
 	font-family: "Open Sans";
 	font-weight: 800;
 	letter-spacing: -4px;
@@ -20,8 +24,6 @@ body{
 	color: #ecf0f1;
 }
 
-@med
-
 .infoblock{
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -30,7 +32,7 @@ body{
 .info{
 	font-size: 30px;
 	letter-spacing: -1px;
-	margin-top: 80px;
+	margin-top: 30px;
 }
 
 .infotitle{
@@ -45,7 +47,6 @@ body{
 	margin-bottom: 100px;
 }
 
-
 .footer{
 	height: 50px;
 	background-color: #ecf0f1;
@@ -53,7 +54,18 @@ body{
 
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
-@media(min-width:768px){}
+@media(min-width:768px){
+	img{
+		height: 275px;
+	}
+	#hero{
+		font-size: 90px;
+	}
+
+	.info{
+		margin-top: 80px;
+	}
+}
 @media(min-width:992px){
 		#hero{
 			font-size: 130px;
