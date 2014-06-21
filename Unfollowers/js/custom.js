@@ -4,7 +4,8 @@
 	var peopleIFollowArray = [];
 	var peopleWhoFollowMeArray = [];
 
-	var number_async_calls = 0;
+	var number_async_calls_follows = 0;
+	var number_async_calls_followedby = 0;
 
 	var ACCESS_TOKEN;;
 
@@ -17,7 +18,7 @@ $(document).ready(function($) {
 
 //make sure to call this function with the access token attached the url.
 function Followers_recursive(url){
-	number_async_calls++;
+	number_async_calls_follows++;
 
 	$.ajax({
 			url: url,
@@ -47,7 +48,7 @@ function Followers_recursive(url){
 }
 
 function followedby_recursive(url){
-	number_async_calls++;
+	number_async_calls_followedby++;
 
 	$.ajax({
 			url: url,
@@ -56,7 +57,7 @@ function followedby_recursive(url){
 		})
 		.done(function(data) {
 			console.log(data);
-			peopleWhoFollowMeArray = peopleIFollowArray.concat(data.data);
+			peopleWhoFollowMeArray = peopleWhoFollowMeArray.concat(data.data);
 
 			//recursive call to get ALL the hits since IG randomly limits the amount of results available.
 			if(data.pagination.next_url)
@@ -67,7 +68,7 @@ function followedby_recursive(url){
 			else
 			{
 				console.log('no_url_available');
-				FollowersSucess = true; //inc
+				FolloweesSuccess = true; //inc
 				ReceivedAJAXResponse();
 			}
 		})
