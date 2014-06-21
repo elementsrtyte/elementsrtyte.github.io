@@ -6,14 +6,17 @@
 
 	var number_async_calls = 0;
 
+	var ACCESS_TOKEN;;
+
 $(document).ready(function($) {
 	$('#tableviewcontainer').hide();
-	Followers();
+	ACCESS_TOKEN = GetToken();
+	Followers('https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN);
 });
 
 //make sure to call this function with the access token attached the url.
 function Followers(url){
-	number_async_calls++;
+	//number_async_calls++;
 
 	$.ajax({
 			url: url,
@@ -21,7 +24,6 @@ function Followers(url){
 			dataType: 'jsonp'
 		})
 		.done(function(data) {
-			FollowersSucess = true; //inc
 			console.log(data);
 			peopleIFollowArray = peopleIFollowArray.concat(data.data);
 
@@ -29,7 +31,10 @@ function Followers(url){
 			if(data.pagination.next_url)
 				Followers(data.pagination.next_url)
 			else
+			{
+				FollowersSucess = true; //inc
 				ReceivedAJAXResponse();
+			}
 		})
 		.fail(function() {
 			console.log("error");
@@ -38,7 +43,7 @@ function Followers(url){
 
 
 	function Followers(){
-		var ACCESS_TOKEN = GetToken();
+		//var ACCESS_TOKEN = GetToken();
 
 		$.ajax({
 			url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN,
