@@ -11,11 +11,11 @@
 $(document).ready(function($) {
 	$('#tableviewcontainer').hide();
 	ACCESS_TOKEN = GetToken();
-	Followers('https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN);
+	Followers_recursive('https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN);
 });
 
 //make sure to call this function with the access token attached the url.
-function Followers(url){
+function Followers_recursive(url){
 	//number_async_calls++;
 
 	$.ajax({
