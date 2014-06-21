@@ -1,8 +1,8 @@
-	var FollowersSucess = false;
-	var FolloweesSuccess = false;
+	var follows_sucess = false;
+	var followedby_success = false;
 
-	var peopleIFollowArray = [];
-	var peopleWhoFollowMeArray = [];
+	var follows_array = [];
+	var followedby_array = [];
 
 	var number_async_calls_follows = 0;
 	var number_async_calls_followedby = 0;
@@ -12,12 +12,12 @@
 $(document).ready(function($) {
 	$('#tableviewcontainer').hide();
 	ACCESS_TOKEN = GetToken();
-	Followers_recursive('https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN);
+	follows_recursive('https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN);
 	followedby_recursive('https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN);
 });
 
 //make sure to call this function with the access token attached the url.
-function Followers_recursive(url){
+function follows_recursive(url){
 	number_async_calls_follows++;
 
 	$.ajax({
@@ -27,19 +27,19 @@ function Followers_recursive(url){
 		})
 		.done(function(data) {
 			console.log(data);
-			peopleIFollowArray = peopleIFollowArray.concat(data.data);
+			follows_array = follows_array.concat(data.data);
 
 			//recursive call to get ALL the hits since IG randomly limits the amount of results available.
 			if(data.pagination.next_url)
 			{
 				console.log('url_available');
-				Followers_recursive(data.pagination.next_url)
+				follows_recursive(data.pagination.next_url)
 			}
 			else
 			{
 				console.log('no_url_available');
-				FollowersSucess = true; //inc
-				ReceivedAJAXResponse();
+				follows_sucess = true; //inc
+				received_ajax_response();
 			}
 		})
 		.fail(function() {
@@ -57,7 +57,7 @@ function followedby_recursive(url){
 		})
 		.done(function(data) {
 			console.log(data);
-			peopleWhoFollowMeArray = peopleWhoFollowMeArray.concat(data.data);
+			followedby_array = followedby_array.concat(data.data);
 
 			//recursive call to get ALL the hits since IG randomly limits the amount of results available.
 			if(data.pagination.next_url)
@@ -68,8 +68,8 @@ function followedby_recursive(url){
 			else
 			{
 				console.log('no_url_available');
-				FolloweesSuccess = true; //inc
-				ReceivedAJAXResponse();
+				followedby_success = true; //inc
+				received_ajax_response();
 			}
 		})
 		.fail(function() {
@@ -77,81 +77,37 @@ function followedby_recursive(url){
 		});
 }
 
-
-	// function Followers(){
-	// 	//var ACCESS_TOKEN = GetToken();
-
-	// 	$.ajax({
-	// 		url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN,
-	// 		type: 'GET',
-	// 		dataType: 'jsonp'
-	// 	})
-	// 	.done(function(data) {
-	// 		console.log(data);
-	// 		if(data.meta.code != 400)
-	// 		{
-	// 			FollowersSucess = true;
-	// 			peopleIFollowArray = data;
-	// 			ReceivedAJAXResponse();
-	// 		}
-	// 	})
-	// 	.fail(function() {
-	// 		console.log("error");
-	// 	});
-
-	// 	$.ajax({				 
-	// 		url: 'https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN,
-	// 		type: 'GET',
-	// 		dataType: 'jsonp'
-	// 	})
-	// 	.done(function(data) {
-	// 		console.log(data);
-	// 		if(data.meta.code != 400)
-	// 		{
-	// 			FolloweesSuccess = true;
-	// 			peopleWhoFollowMeArray = data;
-	// 			ReceivedAJAXResponse();
-	// 		}
-	// 	})
-	// 	.fail(function() {
-	// 		console.log("error");
-	// 	});
-		
-	// }
-
-
-
 	function GetToken() {
 		return window.location.hash.substring(window.location.hash.indexOf("=")+1);
 	}
 
-	function ReceivedAJAXResponse(){
-		if(FolloweesSuccess & FolloweesSuccess)
+	function received_ajax_response(){
+		if(followedby_success & followedby_success)
 	  	{
 	  		$('#tableviewcontainer').show();
  			$('#nousersfound').hide();
 
  			mixpanel.track("Unfollowers Calculated and Viewed");
 
-	  		FolloweesSuccess = false;
-	  		FollowersSucess = false;
+	  		followedby_success = false;
+	  		follows_sucess = false;
 
 	  		console.log("Both Ajax Calls completed successfully!");
 			var c = []; //will store the people who are only followed by me.
 			var d = []; //will store followers who are followed by me.
 
-				for(var i = 0; i< peopleIFollowArray.length; i++)
+				for(var i = 0; i< follows_array.length; i++)
 				{
-					for(var j = 0; j<peopleWhoFollowMeArray.length; j++)
+					for(var j = 0; j<followedby_array.length; j++)
 					{
-						if(peopleIFollowArray[i].id == peopleWhoFollowMeArray[j].id)
+						if(follows_array[i].id == followedby_array[j].id)
 						{
-							d[d.length] = peopleIFollowArray[i];
+							d[d.length] = follows_array[i];
 							break;
 						}
-						else if(j==peopleWhoFollowMeArray.length-1)
+						else if(j==followedby_array.length-1)
 						{
-							c[c.length] = peopleIFollowArray[i];
+							c[c.length] = follows_array[i];
 						}
 					}
 				}
