@@ -31,7 +31,7 @@ function Followers_recursive(url){
 			if(data.pagination.next_url)
 			{
 				console.log('url_available');
-				Followers(data.pagination.next_url)
+				Followers_recursive(data.pagination.next_url)
 			}
 			else
 			{
