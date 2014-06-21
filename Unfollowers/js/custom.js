@@ -12,6 +12,7 @@ $(document).ready(function($) {
 	$('#tableviewcontainer').hide();
 	ACCESS_TOKEN = GetToken();
 	Followers_recursive('https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN);
+	followedby_recursive('https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN);
 });
 
 //make sure to call this function with the access token attached the url.
@@ -45,47 +46,77 @@ function Followers_recursive(url){
 		});
 }
 
+function followedby_recursive(url){
+	number_async_calls++;
 
-	function Followers(){
-		//var ACCESS_TOKEN = GetToken();
-
-		$.ajax({
-			url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN,
+	$.ajax({
+			url: url,
 			type: 'GET',
 			dataType: 'jsonp'
 		})
 		.done(function(data) {
 			console.log(data);
-			if(data.meta.code != 400)
+			peopleWhoFollowMeArray = peopleIFollowArray.concat(data.data);
+
+			//recursive call to get ALL the hits since IG randomly limits the amount of results available.
+			if(data.pagination.next_url)
 			{
-				FollowersSucess = true;
-				peopleIFollowArray = data;
+				console.log('url_available');
+				followedby_recursive(data.pagination.next_url)
+			}
+			else
+			{
+				console.log('no_url_available');
+				FollowersSucess = true; //inc
 				ReceivedAJAXResponse();
 			}
 		})
 		.fail(function() {
 			console.log("error");
 		});
+}
 
-		$.ajax({				 
-			url: 'https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN,
-			type: 'GET',
-			dataType: 'jsonp'
-		})
-		.done(function(data) {
-			console.log(data);
-			if(data.meta.code != 400)
-			{
-				FolloweesSuccess = true;
-				peopleWhoFollowMeArray = data;
-				ReceivedAJAXResponse();
-			}
-		})
-		.fail(function() {
-			console.log("error");
-		});
+
+	// function Followers(){
+	// 	//var ACCESS_TOKEN = GetToken();
+
+	// 	$.ajax({
+	// 		url: 'https://api.instagram.com/v1/users/self/follows?access_token=' + ACCESS_TOKEN,
+	// 		type: 'GET',
+	// 		dataType: 'jsonp'
+	// 	})
+	// 	.done(function(data) {
+	// 		console.log(data);
+	// 		if(data.meta.code != 400)
+	// 		{
+	// 			FollowersSucess = true;
+	// 			peopleIFollowArray = data;
+	// 			ReceivedAJAXResponse();
+	// 		}
+	// 	})
+	// 	.fail(function() {
+	// 		console.log("error");
+	// 	});
+
+	// 	$.ajax({				 
+	// 		url: 'https://api.instagram.com/v1/users/self/followed-by?access_token=' + ACCESS_TOKEN,
+	// 		type: 'GET',
+	// 		dataType: 'jsonp'
+	// 	})
+	// 	.done(function(data) {
+	// 		console.log(data);
+	// 		if(data.meta.code != 400)
+	// 		{
+	// 			FolloweesSuccess = true;
+	// 			peopleWhoFollowMeArray = data;
+	// 			ReceivedAJAXResponse();
+	// 		}
+	// 	})
+	// 	.fail(function() {
+	// 		console.log("error");
+	// 	});
 		
-	}
+	// }
 
 
 
@@ -108,18 +139,18 @@ function Followers_recursive(url){
 			var c = []; //will store the people who are only followed by me.
 			var d = []; //will store followers who are followed by me.
 
-				for(var i = 0; i< peopleIFollowArray.data.length; i++)
+				for(var i = 0; i< peopleIFollowArray.length; i++)
 				{
-					for(var j = 0; j<peopleWhoFollowMeArray.data.length; j++)
+					for(var j = 0; j<peopleWhoFollowMeArray.length; j++)
 					{
-						if(peopleIFollowArray.data[i].id == peopleWhoFollowMeArray.data[j].id)
+						if(peopleIFollowArray[i].id == peopleWhoFollowMeArray[j].id)
 						{
-							d[d.length] = peopleIFollowArray.data[i];
+							d[d.length] = peopleIFollowArray[i];
 							break;
 						}
-						else if(j==peopleWhoFollowMeArray.data.length-1)
+						else if(j==peopleWhoFollowMeArray.length-1)
 						{
-							c[c.length] = peopleIFollowArray.data[i];
+							c[c.length] = peopleIFollowArray[i];
 						}
 					}
 				}
