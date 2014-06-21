@@ -16,7 +16,7 @@ $(document).ready(function($) {
 
 //make sure to call this function with the access token attached the url.
 function Followers_recursive(url){
-	//number_async_calls++;
+	number_async_calls++;
 
 	$.ajax({
 			url: url,
@@ -29,9 +29,13 @@ function Followers_recursive(url){
 
 			//recursive call to get ALL the hits since IG randomly limits the amount of results available.
 			if(data.pagination.next_url)
+			{
+				console.log('url_available');
 				Followers(data.pagination.next_url)
+			}
 			else
 			{
+				console.log('no_url_available');
 				FollowersSucess = true; //inc
 				ReceivedAJAXResponse();
 			}
