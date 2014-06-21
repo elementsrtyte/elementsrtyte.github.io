@@ -10,7 +10,7 @@ body{
 }
 
 #hero{
-	font-size: 130px;
+	font-size: 70px;
 	font-family: "Open Sans";
 	font-weight: 800;
 	letter-spacing: -4px;
@@ -20,6 +20,12 @@ body{
 	color: #ecf0f1;
 }
 
+@med
+
+.infoblock{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
 
 .info{
 	font-size: 30px;
@@ -44,3 +50,13 @@ body{
 	height: 50px;
 	background-color: #ecf0f1;
 }
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+@media(min-width:768px){}
+@media(min-width:992px){
+		#hero{
+			font-size: 130px;
+	}
+}
+@media(min-width:1200px){}
