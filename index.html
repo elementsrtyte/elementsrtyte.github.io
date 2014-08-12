@@ -105,23 +105,35 @@ mixpanel.init("60a536b50949f771fcd2303e41169841");</script><!-- end Mixpanel -->
 <h1>Personal Projects</h1>
 
 <div class="row">
-	<div class="span4 center">
+
+  <div class="span4 center">
+    <img class="img-circle" src="img/PlayLogo.png" style='height: 140px'>
+    <h3>Play My Song</h3>
+    <p>As a DJ, I have encountered the issue where fellow partygoers do not have direct access to the DJ due to restricted booths to make song requests. DJs also have to keep all of these song requests in mind and mix them in when the BPM is right.  This iOS application allows partygoers to request songs to the DJ at the current event they are at.  Geolocation limits users from voting on songs if they are outside of the geofenced perimeter.  The backend service layer was created using .NET MVC API and the iTunes API.  App is available on <a target="_blank" href="https://itunes.apple.com/us/app/play-my-song-request-songs/id905172622?mt=8">iTunes</a>.</p>
+  </div>
+
+  <div class="span4 center">
+    <img class="img-circle" src="img/sudokuicon.png" style='height: 140px'>
+    <h3>Sudoku Picture Solver</h3>
+    <p>This Android app allows a user to take a picture of an unsolved Sudoku puzzle, and the app will transcribe the image and solve the puzzle.  Image processing was used via the tesseract API.  Image processing techniques and optical character recognition (OCR) was used to convert the image into a processable data structure.  The sudoku puzzle was then solved using P. Tellenbach's Sudoku Solving algorithm and displayed to the user.</p>
+  </div>
+
+<div class="span4 center">
+   <img class="img-circle" src="img/300px_Instagram_logo.png" style='height: 140px'>
+    <h3>Who Follows Us</h3>
+    <p>This app allows users to find out who doesn't follow them back on Instagram :).  I came up with a javascript algorithm that hits the Instagram servers recursively in order to get full lists of both 'followers' and 'followees'.  The lists are then iterated thru to find the differences.  The app is available at <a target="_blank" href="https://www.whofollows.us/">www.whofollows.us</a>.</p>
+</div>
+</div>
+
+<div class="row">
+	<div class="span4 offset4 center">
 		<img class="img-circle" src="img/doodleicon.png" style='height: 140px'>
 		<h3>Doodle Web App</h3>
-		<p>Multiplayer HTML5 Game that is similar to the common game of Pictionary.  One user draws an image of a prompted random word.  The other player has to guess this word.  Turns alternate.  Drawings, users, score, are connected to a MySQL database via PHP. </p>
+		<p>Multiplayer HTML5 Game that is similar to the common game of Pictionary.  One user draws an image of a prompted random word.  The other player has to guess this word.  Turns alternate.  Drawings, users, score, are connected to a MySQL database via PHP.</p>
 	</div>
 	
-	<div class="span4 center">
-		<img class="img-circle" src="img/sudokuicon.png" style='height: 140px'>
-		<h3>Sudoku Picture Solver</h3>
-		<p>This Android app allows a user to take a picture of an unsolved Sudoku puzzle, and the app will transcribe the image and solve the puzzle.  Image processing was used via the tesseract API.  Image processing techniques and optical character recognition (OCR) was used to convert the image into a processable data structure.  The sudoku puzzle was then solved using P. Tellenbach's Sudoku Solving algorithm and displayed to the user.</p>
-	</div>
+
 	
-	<div class="span4 center">
-		<img class="img-circle" src="img/PlayLogo.png" style='height: 140px'>
-		<h3>Play My Song</h3>
-		<p>As a DJ, I have encountered the issue where fellow partygoers do not have direct access to the DJ due to restricted booths to make song requests. DJs also have to keep all of these song requests in mind and mix them in when the BPM is right.  This iOS application allows partygoers to request songs to the DJ at the current event they are at.  Geolocation limits users from voting on songs if they are outside of the geofenced perimeter.  The backend service layer was created using .NET MVC API and the iTunes API.</p>
-	</div>
 </div>
 
 <hr>
